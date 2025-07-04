@@ -1,50 +1,40 @@
-# -----------------------------------------------------------------
+# ========================================================
 # DEPENDÊNCIAS DO PROJETO POSTECH-CHALLENGE
-# Para instalar todas, rode: pip install -r requirements.txt
-# -----------------------------------------------------------------
+# ========================================================
+# Para instalar todas as dependências de produção:
+# pip install -r requirements.txt
+#
+# Para desenvolvimento (incluindo dependências opcionais):
+# pip install -r requirements-dev.txt
+# ========================================================
 
-# --- Core para Manipulação e Análise de Dados ---
-pandas>=2.0.0
-numpy>=1.24.0
+# ==================== DEPENDÊNCIAS CORE ====================
+# Essenciais para o funcionamento básico do projeto
+pandas>=2.0.0            # Manipulação avançada de dados
+numpy>=1.24.0            # Computação numérica eficiente
+python-dotenv            # Gerenciamento de variáveis de ambiente
 
-# --- Coleta de Dados (Web/API) ---
-yfinance
-lxml
+# ================== COLETA E PROCESSAMENTO =================
+yfinance                 # API para dados de mercado
+lxml                     # Parser HTML/XML para web scraping
+pandas-ta                # Indicadores técnicos para análise
 
-# --- Banco de Dados Local ---
-duckdb
-duckdb-engine
+# ===================== BANCO DE DADOS ======================
+duckdb                   # Banco de dados OLAP embutido
+duckdb-engine            # Interface SQLAlchemy para DuckDB
 
-# --- Engenharia de Atributos ---
-pandas-ta
+# ==================== MACHINE LEARNING =====================
+scikit-learn             # Algoritmos ML tradicionais
+lightgbm                 # Gradient Boosting eficiente
+tensorflow               # Redes neurais e modelos sequenciais
+optuna                   # Otimização de hiperparâmetros
 
-# --- Machine Learning e Modelagem ---
-scikit-learn  # Essencial para pré-processamento, métricas e modelos de baseline
-lightgbm      # Nosso modelo de Gradient Boosting
-tensorflow    # Para o modelo LSTM
-optuna        # Para otimização de hiperparâmetros
+# ====================== MONITORAMENTO ======================
+mlflow                   # Rastreamento de experimentos ML
 
-# --- MLOps: Rastreamento de Experimentos ---
-mlflow
+# ======================== API/SERVIÇO ======================
+fastapi                  # Framework para construção de APIs
+uvicorn[standard]        # Servidor ASGI de alta performance
 
-# --- API e Servidor Web ---
-fastapi     # Framework para a criação da API
-uvicorn[standard] # Servidor ASGI para rodar a FastAPI
-
-# --- Configuração e Ambiente ---
-python-dotenv # Para carregar variáveis do arquivo .env
-
-# --- Testagem ---
-pytest # Para carregar variáveis do arquivo .env
-
-# --- Desenvolvimento, Notebooks e Visualização ---
-# (Podem ser movidas para um requirements-dev.txt se preferir)
-jupyterlab
-notebook
-matplotlib
-seaborn
-ipykernel
-
-# --- Qualidade de Código (Opcional, mas recomendado) ---
-black       # Formatador de código automático
-flake8      # Linter para encontrar erros e problemas de estilo
+# ====================== DEPENDÊNCIAS DEV ===================
+# (Movidas para requirements-dev.txt - ver abaixo)
