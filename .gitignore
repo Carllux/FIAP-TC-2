@@ -1,2 +1,17 @@
+# Arquivos de ambiente (contêm segredos e configurações locais)
 .env
+
+# Ambiente virtual Python (não deve ser versionado)
 \.venv
+
+# Cache de bytecode Python (gerado automaticamente)
+*\__pycache__
+
+# Ignorar a pasta de dados inteira e seu conteúdo
+# Motivos: 
+# 1. Dados brutos/processados podem ser grandes (não ideais para Git)
+# 2. Dados podem ser sensíveis ou regeneráveis via pipeline
+data/
+
+# Ignorar scripts de teste temporários (usados apenas localmente)
+test_import.py
