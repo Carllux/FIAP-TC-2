@@ -1,0 +1,24 @@
+import os
+import pathlib
+from dotenv import load_dotenv
+
+# Carrega as variáveis de ambiente do arquivo .env para o sistema
+load_dotenv()
+
+# --- Paths ---
+# Cria um caminho absoluto para a raiz do projeto, garantindo que funcione em qualquer OS
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
+
+# --- Configurações do Pipeline de Dados ---
+# Busca a data de início do .env, com um valor padrão ("default") se não for encontrada
+START_DATE = os.getenv("START_DATE", "2015-01-01")
+
+# Busca o nome do banco de dados do .env, com um valor padrão
+DB_NAME = os.getenv("DATABASE_NAME", "mercados.duckdb")
+
+# Constrói o caminho completo para o banco de dados
+DB_PATH = DATA_DIR / DB_NAME
+
+# Lista de ativos que queremos baixar.
+TICKERS = ["^BVSP", "USDBRL=X", "^GSPC", "CL=F", "PETR4.SA"]
