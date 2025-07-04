@@ -1,0 +1,23 @@
+# ========================================================
+# DEPENDÊNCIAS DE DESENVOLVIMENTO
+# ========================================================
+# Instale com: pip install -r requirements-dev.txt
+# ========================================================
+
+# --------------- Notebooks e Visualização ---------------
+jupyterlab               # Ambiente de desenvolvimento
+notebook                 # Jupyter Notebook tradicional
+matplotlib               # Visualizações básicas
+seaborn                  # Visualizações estatísticas
+ipykernel                # Kernel Python para Jupyter
+
+# --------------- Testes e Qualidade de Código -----------
+pytest                   # Framework de testes unitários
+pytest-cov               # Cobertura de testes
+flake8                   # Linter para estilo de código
+black                    # Formatação automática de código
+mypy                     # Checagem de tipos estática
+
+# --------------- Documentação ---------------------------
+mkdocs                   # Geração de documentação
+mkdocs-material          | Tema profissional para docs
