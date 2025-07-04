@@ -17,32 +17,28 @@ logging.basicConfig(
 
 def fetch_data(tickers: list[str], start_date: str, end_date: str) -> pd.DataFrame:
     """
-    Busca dados históricos para uma lista de tickers usando a API do Yahoo Finance.
+    Busca dados históricos (OHLCV) para uma lista de tickers.
     """
-    logging.info(f"Iniciando busca de dados para os tickers: {tickers}...")
+    logging.info(f"Iniciando busca de dados OHLCV para os tickers: {tickers}...")
     try:
         data = yf.download(tickers, start=start_date, end=end_date, progress=False)
         
         if data is None or data.empty:
-            logging.warning(f"Nenhum dado retornado do yfinance para os tickers: {tickers}")
+            logging.warning(f"Nenhum dado retornado do yfinance para: {tickers}")
             return pd.DataFrame()
 
-        # Seleciona apenas a(s) coluna(s) 'Close'
+        # Se tivermos múltiplas colunas (MultiIndex), vamos achatá-las
         if isinstance(data.columns, pd.MultiIndex):
-            data = data['Close']
-        elif 'Close' in data.columns:
-            data = data[['Close']] # Colchetes duplos aqui já garantem um DataFrame
+            # Une os dois níveis de nome de coluna, ex: ('Close', '^BVSP') -> 'close_^bvsp'
+            data.columns = [f"{col[0].lower()}_{col[1]}" for col in data.columns]
         else:
-            logging.warning("Coluna 'Close' não encontrada nos dados baixados.")
-            return pd.DataFrame()
-
-        # --- ADIÇÃO PARA GARANTIR O TIPO DE RETORNO ---
-        # Se após a seleção o resultado for uma Series (caso de um único ticker),
-        # converte para DataFrame.
-        if isinstance(data, pd.Series):
-            data = data.to_frame(name=tickers[0] if len(tickers) == 1 else 'Close')
-        # --------------------------------------------------
-
+            # Se for um único ticker, as colunas já são simples
+            data.columns = [f"{col.lower()}" for col in data.columns]
+            
+        # Remove colunas que não usaremos (Adj Close e Volume)
+        cols_to_drop = [col for col in data.columns if 'adj' in col or 'volume' in col]
+        data = data.drop(columns=cols_to_drop)
+            
         logging.info("Busca de dados concluída com sucesso.")
         return data
         
@@ -55,16 +51,28 @@ def fill_missing_values(df: pd.DataFrame) -> pd.DataFrame:
     return df.ffill().bfill()
 
 def standardize_columns(df: pd.DataFrame) -> pd.DataFrame:
-    """Padroniza nomes das colunas para lowercase e renomeia tickers."""
-    novos_nomes = {
-        '^BVSP': 'ibovespa',
-        'USDBRL=X': 'dolar',
-        '^GSPC': 'sp500',
-        'CL=F': 'petroleo_brent',
-        'PETR4.SA': 'petrobras'
-    }
-    df = df.rename(columns=novos_nomes)
-    return df.rename(columns=str.lower)
+    """
+    Padroniza nomes de colunas iterativamente, substituindo tickers por nomes amigáveis.
+    """
+    # É uma boa prática trabalhar com uma cópia para evitar avisos do Pandas
+    df_renamed = df.copy()
+    
+    # Pega a lista de nomes de colunas atuais para podermos modificá-la
+    new_columns = df_renamed.columns.tolist()
+
+    # Itera sobre cada item do nosso mapa de 'de-para' vindo do config
+    for ticker, friendly_name in config.TICKER_MAP.items():
+        # Para cada coluna na nossa lista, substitui o texto do ticker pelo nome amigável
+        # Ex: 'close_^gspc' se torna 'close_sp500'
+        new_columns = [col.replace(ticker, friendly_name) for col in new_columns]
+    
+    # Atribui a lista de nomes de colunas, agora modificada, de volta ao DataFrame
+    df_renamed.columns = new_columns
+    
+    # A limpeza final garante que tudo esteja em minúsculas e sem caracteres especiais
+    df_renamed.columns = df_renamed.columns.str.lower().str.replace('[^a-zA-Z0-9_]', '_', regex=True)
+
+    return df_renamed
 
 def process_dates(df: pd.DataFrame, date_column: str = 'Date') -> pd.DataFrame:
     """Converte e enriquece a coluna de datas."""

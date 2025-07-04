@@ -1,7 +1,7 @@
 import os
 import pathlib
 from dotenv import load_dotenv
-from typing import List # Importa o tipo para listas
+from typing import Dict, List # Importa o tipo para listas
 
 # Carrega as variáveis de ambiente do arquivo .env para o sistema
 load_dotenv()
@@ -12,8 +12,17 @@ BASE_DIR: pathlib.Path = pathlib.Path(__file__).resolve().parent.parent
 DATA_DIR: pathlib.Path = BASE_DIR / "data"
 
 # --- Configurações do Pipeline de Dados ---
-# Busca a data de início do .env, com um valor padrão ("default") se não for encontrada
 START_DATE: str = os.getenv("START_DATE", "2015-01-01")
+
+# --- ADIÇÃO DO MAPEAMENTO DE NOMES ---
+TICKER_MAP: Dict[str, str] = {
+    '^BVSP': 'ibovespa',
+    'USDBRL=X': 'dolar',
+    '^GSPC': 'sp500',
+    'CL=F': 'petroleo_brent',
+    'PETR4.SA': 'petrobras'
+}
+# ------------------------------------
 
 # Busca o nome do banco de dados do .env, com um valor padrão
 DB_NAME: str = os.getenv("DATABASE_NAME", "mercados.duckdb")
