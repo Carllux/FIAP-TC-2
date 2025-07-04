@@ -43,9 +43,8 @@ jupyterlab
 notebook
 matplotlib
 seaborn
+ipykernel
 
 # --- Qualidade de Código (Opcional, mas recomendado) ---
 black       # Formatador de código automático
 flake8      # Linter para encontrar erros e problemas de estilo
-
-ipykernel
