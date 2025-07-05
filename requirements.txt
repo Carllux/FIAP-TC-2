@@ -11,7 +11,7 @@
 # ==================== DEPENDÊNCIAS CORE ====================
 # Essenciais para o funcionamento básico do projeto
 pandas>=2.0.0            # Manipulação avançada de dados
-numpy>=1.24.0            # Computação numérica eficiente
+numpy~=1.26.4           # Computação numérica eficiente
 python-dotenv            # Gerenciamento de variáveis de ambiente
 
 # ================== COLETA E PROCESSAMENTO =================
