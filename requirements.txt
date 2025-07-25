@@ -3,15 +3,12 @@
 # ========================================================
 # Para instalar todas as dependências de produção:
 # pip install -r requirements.txt
-#
-# Para desenvolvimento (incluindo dependências opcionais):
-# pip install -r requirements-dev.txt
 # ========================================================
 
 # ==================== DEPENDÊNCIAS CORE ====================
 # Essenciais para o funcionamento básico do projeto
 pandas>=2.0.0            # Manipulação avançada de dados
-numpy~=1.26.4           # Computação numérica eficiente
+numpy~=1.26.4            # Computação numérica eficiente
 python-dotenv            # Gerenciamento de variáveis de ambiente
 
 # ================== COLETA E PROCESSAMENTO =================
@@ -28,6 +25,8 @@ scikit-learn             # Algoritmos ML tradicionais
 lightgbm                 # Gradient Boosting eficiente
 tensorflow               # Redes neurais e modelos sequenciais
 optuna                   # Otimização de hiperparâmetros
+xgboost                  # Algoritmo adicional de boosting
+shap                     # Interpretação de modelos ML
 
 # ====================== MONITORAMENTO ======================
 mlflow                   # Rastreamento de experimentos ML
@@ -36,6 +35,21 @@ mlflow                   # Rastreamento de experimentos ML
 fastapi                  # Framework para construção de APIs
 uvicorn[standard]        # Servidor ASGI de alta performance
 
-shap
-# ====================== DEPENDÊNCIAS DEV ===================
-# (Movidas para requirements-dev.txt - ver abaixo)
+# ============== NOTEBOOKS E VISUALIZAÇÃO ===================
+jupyterlab               # Ambiente de desenvolvimento
+notebook                 # Jupyter Notebook tradicional
+matplotlib               # Visualizações básicas
+seaborn                  # Visualizações estatísticas
+ipykernel                # Kernel Python para Jupyter
+statsmodels              # Modelos estatísticos
+scipy                    # Funções científicas e estatísticas
+
+# =========== TESTES E QUALIDADE DE CÓDIGO ==================
+pytest                   # Framework de testes unitários
+pytest-cov               # Cobertura de testes
+flake8                   # Linter para estilo de código
+black                    # Formatação automática de código
+mypy                     # Checagem de tipos estática
+
+# ===================== DOCUMENTAÇÃO =========================
+mkdocs                   # Geração de documentação

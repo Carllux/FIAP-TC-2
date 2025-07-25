@@ -36,7 +36,7 @@ def fetch_data(tickers: list[str], start_date: str, end_date: str) -> pd.DataFra
             data.columns = [f"{col.lower()}" for col in data.columns]
             
         # Remove colunas que não usaremos (Adj Close e Volume)
-        cols_to_drop = [col for col in data.columns if 'adj' in col or 'volume' in col]
+        cols_to_drop = [col for col in data.columns if 'adj' in col or 'unnamed' in col]
         data = data.drop(columns=cols_to_drop)
             
         logging.info("Busca de dados concluída com sucesso.")
