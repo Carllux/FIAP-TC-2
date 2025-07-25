@@ -21,10 +21,10 @@ Este repositório contém um projeto desenvolvido em Python para análise de dad
 
 > 💡 **Recomendado**: utilize um ambiente virtual (`venv`) para garantir o isolamento das dependências do projeto.
 
-### 1. Clone o repositório
+### 1. Clone o repositório de desenvolvimento
 
 ```bash
-git clone https://github.com/seu-usuario/seu-projeto.git
+git clone --branch develop https://github.com/Carllux/FIAP-TC-2.git
 cd seu-projeto
 ```
 
