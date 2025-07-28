@@ -11,7 +11,7 @@ Este repositório contém um projeto desenvolvido em Python para análise de dad
 
 ## ⚙️ Requisitos
 
-- Python 3.11.9   
+- <a href="https://www.python.org/downloads/release/python-3119/">Python 3.11.9</a>
 - `git` instalado  
 - Acesso ao terminal ou prompt de comando
 
