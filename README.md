@@ -26,6 +26,7 @@ Este repositório contém um projeto desenvolvido em Python para análise de dad
 ```bash
 git clone --branch develop https://github.com/Carllux/FIAP-TC-2.git
 cd seu-projeto
+code .
 ```
 
 ### 2. Crie o ambiente virtual
