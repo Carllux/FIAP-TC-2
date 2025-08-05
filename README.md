@@ -1,10 +1,22 @@
+![Python 3.11.9](https://img.shields.io/badge/Python-3.11.9-blue.svg)![Libs](https://img.shields.io/badge/Libs-Scikit--learn%20|%20XGBoost%20|%20Optuna-orange)![Status](https://img.shields.io/badge/Status-Finalizado-green)
+
 
 # 📊 Tech Challenge: Modelo Preditivo para o IBOVESPA
 
-Este repositório contém o desenvolvimento do projeto final para a **Fase 02** do curso de Pós-Graduação em Data Analytics da **POS TECH**.
+Este repositório contém o desenvolvimento do projeto final para a **Fase 02** do curso de Pós-Graduação em Data Analytics da **FIAP POS-TECH**.
 
-O objetivo foi desenvolver um modelo preditivo capaz de prever se o índice IBOVESPA fechará em **alta** ou **baixa** no dia seguinte, servindo como uma ferramenta de apoio à tomada de decisão para analistas quantitativos.
 
+## 🎯 O Problema
+
+A missão consistiu em atuar como cientista de dados em um fundo de investimentos brasileiro, com o desafio de criar um modelo preditivo da tendência diária do IBOVESPA.  
+
+Sendo o objetivo classificar os movimentos do índice em duas categorias:
+- **Alta Significativa**
+- **Neutra**/**Baixa Significativa**
+
+Servindo como uma ferramenta de apoio à tomada de decisão para analistas quantitativos.
+
+---
 O projeto percorre todas as etapas do pipeline de Data Science:
 - Aquisição e tratamento de dados
 - Engenharia de atributos
@@ -13,16 +25,6 @@ O projeto percorre todas as etapas do pipeline de Data Science:
 
 ---
 
-## 🎯 O Problema
-
-A missão consistiu em atuar como cientista de dados em um fundo de investimentos brasileiro, com o desafio de criar um modelo preditivo da tendência diária do IBOVESPA.  
-
-Em uma etapa posterior, o objetivo foi expandido para classificar os movimentos do índice em duas categorias:
-- **Alta Significativa**
-- **Neutra**/**Baixa Significativa**
-
-
----
 
 ## ⚙️ Requisitos
 
@@ -39,7 +41,7 @@ Em uma etapa posterior, o objetivo foi expandido para classificar os movimentos 
 ### 1. Clone o repositório
 
 ```bash
-git clone --branch develop https://github.com/Carllux/FIAP-TC-2.git
+git clone --branch main https://github.com/Carllux/FIAP-TC-2.git
 cd FIAP-TC-2
 ```
 
@@ -53,7 +55,7 @@ python -m venv .venv
 
 - **Windows**:
   ```bash
-  .\.venv\Scriptsctivate
+  .\.venv\Scripts\activate
   ```
 
 - **Linux/macOS**:
@@ -124,6 +126,7 @@ Criação de um conjunto diversificado de features:
 ```plaintext
 .
 ├── data/                  # Bases de dados originais e transformadas
+├── docs/                  # PDF contendo o storytelling técnico do código
 ├── notebooks/             # Jupyter Notebooks com experimentações
 ├── src/                   # Código-fonte modularizado
 │   └── data/              # Carregamento, transformação e limpeza
@@ -143,6 +146,7 @@ Você pode executá-los em ambientes como:
 - VSCode (com extensão Python ativa)
 
 ### Ordem recomendada:
+- `Com exceção do notebook 00_data_investigation.ipynb, é recomendada a execução de todos os notebooks de forma linear`
 
 1. `01_Exploracao_e_Feature_Engineering.ipynb`  
 2. `02_Modelagem_e_Validacao.ipynb`
