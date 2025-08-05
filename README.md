@@ -169,4 +169,4 @@ Você pode executá-los em ambientes como:
 
 ## 📬 Contato
 
-Em caso de dúvidas ou sugestões, sinta-se à vontade para abrir uma issue ou entrar em contato via [LinkedIn](https://github.com/Carllux/).
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/carlos-vinicius-nascimento-de-jesus/)
