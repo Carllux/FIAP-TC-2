@@ -1,4 +1,9 @@
-![Python 3.11.9](https://img.shields.io/badge/Python-3.11.9-blue.svg)![Libs](https://img.shields.io/badge/Libs-Scikit--learn%20|%20XGBoost%20|%20Optuna-orange)![Status](https://img.shields.io/badge/Status-Finalizado-green)[![Assistir à Apresentação](https://img.shields.io/badge/Assistir%20à%20Apresentação-red?style=flat-square&logo=youtube&logoColor=white)](https://youtu.be/8r_cYf1fLIM)
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Finalizado-green?style=for-the-badge" alt="Status: Finalizado"/>
+  <img src="https://img.shields.io/badge/Python-3.11.9-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python 3.11.9"/>
+  <img src="https://img.shields.io/badge/Bibliotecas-Scikit--learn%20|%20XGBoost%20|%20LightGBM%20|%20TensorFlow%20|%20Optuna-orange?style=for-the-badge" alt="Bibliotecas: Scikit-learn | XGBoost | LightGBM | TensorFlow | Optuna"/>
+  <a href="https://www.youtube.com/watch?v=8r_cYf1fLIM"><img src="https://img.shields.io/badge/Assistir%20à%20Apresentação-red?style=for-the-badge&logo=youtube&logoColor=white" alt="Assistir à Apresentação"/></a>
+</p>
 
 
 # 📊 Tech Challenge: Modelo Preditivo para o IBOVESPA
