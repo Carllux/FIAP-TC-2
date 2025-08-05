@@ -11,7 +11,7 @@ Este repositório contém um projeto desenvolvido em Python para análise de dad
 
 ## ⚙️ Requisitos
 
-- Python 3.10 ou superior  
+- <a href="https://www.python.org/downloads/release/python-3119/">Python 3.11.9</a>
 - `git` instalado  
 - Acesso ao terminal ou prompt de comando
 
@@ -25,7 +25,8 @@ Este repositório contém um projeto desenvolvido em Python para análise de dad
 
 ```bash
 git clone --branch develop https://github.com/Carllux/FIAP-TC-2.git
-cd seu-projeto
+cd FIAP-TC-2
+code .
 ```
 
 ### 2. Crie o ambiente virtual
@@ -91,5 +92,5 @@ Você pode executar os notebooks via Jupyter ou diretamente em ambiente como Goo
 
 ## 📌 Observações
 
-- Este projeto é parte de um desafio técnico proposto pela [PosTech](https://www.pucrs.br/pos-tech/).
+- Este projeto é parte de um desafio técnico proposto pela FIAP-POSTECH
 - A modelagem está focada em prever movimentos do índice **Ibovespa**, categorizados em **Alta Significativa**, **Neutra** ou **Baixa Significativa**.
